@@ -57,6 +57,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public void assertBagSubTotalIsDisplayed() {
+        implicitWait(3);
         Assert.assertTrue(checkoutBagSubTotal.isDisplayed());
         this.assertGrandTotalIsDisplayed();
     }

@@ -7,7 +7,6 @@
         <methods>
           <include name="setUpPage"/>
           <include name="purchaseItem"/>
-          <include name="selectRandomItem"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- e2e.e2eTesting -->

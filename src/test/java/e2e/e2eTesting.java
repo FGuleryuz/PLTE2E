@@ -31,38 +31,34 @@ public class e2eTesting extends TestBase {
     }
 
     @Test()
-    public void selectRandomItem() {
+    public void purchaseItem() {
         homePage.assertUrl();
         getRandomProduct(homePage.navigateBarProducts).click();
         waitFor(3);
         plpPage.plpPageIsDisplayed();
         getRandomProduct(plpPage.products).click();
-        if(selectedItem.equals("https://www.prettylittlething.com/royalty")){
-            pdpPage.closeBtn.click();
-            waitFor(3);
-            driver.navigate().back();
-            getRandomProduct(plpPage.products).click();
-       }
+//        if(selectedItem.equals("https://www.prettylittlething.com/royalty")){
+//            pdpPage.closeBtn.click();
+//            waitFor(3);
+//            driver.navigate().back();
+//            getRandomProduct(plpPage.products).click();
+//       }
         waitFor(3);
         pdpPage.pdpPageIsDisplayed();
         getRandomProduct(pdpPage.selectSizeBtn).click();
-        if (selectedItem.equals("One Size")) {
-          pdpPage.closeBtn.click();
-            driver.navigate().back();
-            getRandomProduct(plpPage.products).click();
-        }
+//        if (selectedItem.equals("One Size")) {
+//          pdpPage.closeBtn.click();
+//            driver.navigate().back();
+//            getRandomProduct(plpPage.products).click();
+//        }
         waitFor(5);
         pdpPage.assertProduct();
         bagPage.proceedToCheckout();
         waitFor(10);
-        //checkoutPage.checkoutPageIsDisplayed();
-
-    }
-    @Test(dependsOnMethods ={"selectRandomItem"} )
-    public void purchaseItem() {
-
         checkoutPage.checkoutPageIsDisplayed();
+
     }
+
 
 }
 

@@ -1,6 +1,6 @@
 package pages;
 
-import action.TestData;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +20,7 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        TestData testData = new TestData(driver);
+        //TestData testData = new TestData(driver);
     }
     public void assertUrl() {
         verifyURLContains("https://www.prettylittlething.com/");
