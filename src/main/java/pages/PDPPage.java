@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.testng.Assert;
-
 import java.util.Arrays;
 import java.util.List;
 

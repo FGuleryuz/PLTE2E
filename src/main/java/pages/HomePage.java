@@ -20,7 +20,6 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        //TestData testData = new TestData(driver);
     }
     public void assertUrl() {
         verifyURLContains("https://www.prettylittlething.com/");
