@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/fatma.guleryuz/IdeaProjects/PLPE2E">
+        <classes>
+            <class name="e2e.e2eTesting">
+                <methods>
+                    <include name="selectRandomItem"/>
+                    <include name="purchaseItem"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
