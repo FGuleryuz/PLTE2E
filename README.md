@@ -14,7 +14,7 @@ scenarios have passed or failed.
 POM, I located the Web Elements beforehand under "pages package" which
 helps with the code reusability (each Web Element is located only once - no
 duplication) and improved the code maintenance.
- I passed my URL and browser in "configuration.properties"; to avoid hard
+ I passed my URL ,email,password and browser in "configuration.properties"; to avoid hard
 coding.
  "utils"; package consist of 3 classes. "ConfigurationReader"; is used to read
 the configuration.properties file. "Driver"; class is where I created my driver

@@ -1,5 +1,6 @@
 package pages;
 
+import utils.ConfigurationReader;
 import utils.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,8 +49,6 @@ public class CheckoutPage extends BasePage {
     }
 
     public void checkoutPageIsDisplayed() {
-        //I planed to use configuration reader to avoid hard coding but It is not working
-        //Assert.assertTrue(driver.getCurrentUrl(ConfigurationReader.getProperty("checkoutVerification")));
         verifyURLContains("https://checkout.prettylittlething.com/");
         implicitWait(3);
         this.assertBagSubTotalIsDisplayed();
@@ -69,15 +68,14 @@ public class CheckoutPage extends BasePage {
     public void login() {
         Helper helper = new Helper(driver);
         helper.clickWithJS(emailField);
-        //emailField.sendKeys(ConfigurationReader.getProperty("email"));Conf.reader is not working
-        emailField.sendKeys("fatmaboohoo@gmail.com");
-        helper.waitForClickability(continueBtn, 4);
-        continueBtn.click();
-        waitForVisibility(passwordField,3);
+        emailField.sendKeys(ConfigurationReader.getProperty("email"));
+        helper.waitForClickability(continueBtn, 4).click();
+        //continueBtn.click();
+        waitFor(3);
         Assert.assertTrue(passwordField.isDisplayed());
-        //emailField.sendKeys(ConfigurationReader.getProperty("password"));Conf.reader is not working
-        passwordField.sendKeys("BFg123456@");
-        continueBtn.click();
+
+        passwordField.sendKeys(ConfigurationReader.getProperty("password"));
+        helper.waitForClickability(continueBtn, 4).click();
         waitFor(7);
         this.assertProductNameIsDisplayed();
     }
