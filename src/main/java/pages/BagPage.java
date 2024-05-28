@@ -3,8 +3,8 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import static utils.Helper.waitFor;
 
+import static helper.Utility.waitFor;
 
 
 public class BagPage extends BasePage {

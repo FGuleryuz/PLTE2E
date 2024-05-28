@@ -1,12 +1,13 @@
 package pages;
 
-import utils.ConfigurationReader;
-import utils.Helper;
+import helper.ConfigurationReader;
+import helper.Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import static utils.Helper.*;
+import static helper.Utility.*;
+
 
 public class CheckoutPage extends BasePage {
 
@@ -50,33 +51,34 @@ public class CheckoutPage extends BasePage {
 
     public void checkoutPageIsDisplayed() {
         verifyURLContains("https://checkout.prettylittlething.com/");
-        implicitWait(3);
+        waitFor(4);
         this.assertBagSubTotalIsDisplayed();
     }
 
     public void assertBagSubTotalIsDisplayed() {
-        implicitWait(3);
+        waitFor(4);
         Assert.assertTrue(checkoutBagSubTotal.isDisplayed());
         this.assertGrandTotalIsDisplayed();
     }
-
+//
     public void assertGrandTotalIsDisplayed() {
+        waitFor(4);
         Assert.assertTrue(checkoutBagGrandTotal.isDisplayed());
         this.login();
     }
 
     public void login() {
-        Helper helper = new Helper(driver);
-        helper.clickWithJS(emailField);
-        emailField.sendKeys(ConfigurationReader.getProperty("email"));
-        helper.waitForClickability(continueBtn, 4).click();
-        //continueBtn.click();
+        Utility utility = new Utility(driver);
         waitFor(3);
+        utility.clickWithJS(emailField);
+        emailField.sendKeys(ConfigurationReader.getProperty("email"));
+        utility.waitForClickability(continueBtn, 4).click();
+        waitFor(5);
         Assert.assertTrue(passwordField.isDisplayed());
-
+        utility.clickWithJS(passwordField);
         passwordField.sendKeys(ConfigurationReader.getProperty("password"));
-        helper.waitForClickability(continueBtn, 4).click();
-        waitFor(7);
+        utility.waitForClickability(continueBtn, 5).click();
+        waitFor(8);
         this.assertProductNameIsDisplayed();
     }
 
@@ -96,9 +98,9 @@ public class CheckoutPage extends BasePage {
     }
 
     public void scrollToPaymentSection() {
-        Helper helper = new Helper(driver);
+        Utility utility =new Utility(driver);
         waitFor(4);
-        helper.scrollDown(backLink);
+        utility.scrollDown(backLink);
         this.selectCardPaymentMethod();
 
     }

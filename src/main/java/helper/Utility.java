@@ -1,27 +1,25 @@
-package utils;
+package helper;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-
-public class Helper {
-
-
+public class Utility {
     public static String selectedItem;
 
     private static WebDriver driver;
     private WebDriverWait wait;
 
-    public Helper(WebDriver driver) {
+    public Utility(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
     }
@@ -87,7 +85,7 @@ public class Helper {
 
         textList.removeIf(text -> text.equalsIgnoreCase("EDIT") ||
                 text.equalsIgnoreCase("BEAUTY") || text.equalsIgnoreCase("ACCESSORIES & HOME")
-                || text.equalsIgnoreCase("SHOES"));
+                || text.equalsIgnoreCase("SHOES")|| text.equalsIgnoreCase("Size Guide"));
 
         Random random = new Random();
         int index = random.nextInt(textList.size());

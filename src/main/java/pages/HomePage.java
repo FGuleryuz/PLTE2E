@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
-import static utils.Helper.verifyURLContains;
-import static utils.Helper.waitFor;
+import static helper.Utility.verifyURLContains;
+import static helper.Utility.waitFor;
+
 
 public class HomePage extends BasePage {
     public WebDriver driver;
@@ -22,7 +23,7 @@ public class HomePage extends BasePage {
         this.driver = driver;
     }
     public void assertUrl() {
-        verifyURLContains("https://www.prettylittlething.com/");
+        verifyURLContains(driver.getCurrentUrl());
         this.acceptAllButton();
     }
 

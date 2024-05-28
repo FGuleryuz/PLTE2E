@@ -7,8 +7,7 @@ import org.openqa.selenium.support.FindBys;
 import org.testng.Assert;
 import java.util.Arrays;
 import java.util.List;
-
-import static utils.Helper.*;
+import static helper.Utility.*;
 
 public class PDPPage extends BasePage {
     public WebDriver driver;
@@ -60,7 +59,7 @@ public class PDPPage extends BasePage {
         HomePage homePage = new HomePage(driver);
         waitFor(3);
         addToBagBtn.click();
-        explicitWait(4);
+        waitFor(4);
         String itemCount = basketIcon.getText();
         int count = Integer.parseInt(itemCount);
         Assert.assertNotEquals(count, 0, "Value should not be 0");

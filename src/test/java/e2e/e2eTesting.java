@@ -1,14 +1,14 @@
 package e2e;
 
 
-import org.openqa.selenium.By;
-import utils.Helper;
+import helper.Utility;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 
-import static utils.Helper.*;
-import static utils.Driver.driver;
+import static helper.Utility.getRandomProduct;
+import static helper.Utility.waitFor;
+import static helper.Driver.driver;
 
 public class e2eTesting extends TestBase {
 
@@ -16,7 +16,6 @@ public class e2eTesting extends TestBase {
     private HomePage homePage;
     private PLPPage plpPage;
     private PDPPage pdpPage;
-    private Helper helper;
     private BagPage bagPage;
     private CheckoutPage checkoutPage;
 
@@ -27,7 +26,6 @@ public class e2eTesting extends TestBase {
         pdpPage = new PDPPage(driver);
         bagPage = new BagPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        helper = new Helper(driver);
     }
 
     @Test()
